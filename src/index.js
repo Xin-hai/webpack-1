@@ -6,9 +6,9 @@ console.log(png)
 console.log(x)
 const div = document.getElementById('app1')
 
-// div.innerHTML = `
-//     <img src="{{png}}">
-// `
+div.innerHTML = `
+    <img src="{{png}}">
+`
 
 const button = document.createElement('button')
 button.innerHTML = '懒加载'
