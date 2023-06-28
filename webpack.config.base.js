@@ -7,8 +7,36 @@ module.exports = {
     output: {
         filename: 'index.[contenthash].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [{loader: 'file-loader',},],
+            },
+            {
+                test: /\.styl$/i,
+                use:["style-loader", "css-loader", "stylus-loader"]
+            },
+            {
+                test: /\.less$/i,
+                use: ["style-loader", "css-loader", "less-loader",],
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {implementation:require("dart-sass")}
+                    },
+
+                ],
+            },
+        ],
+    },
     plugins: [new HtmlWebpackPlugin({
-        title: '星星导航',
+        title: '星星',
         template: 'src/assets/index.html'
       }),
     ],  

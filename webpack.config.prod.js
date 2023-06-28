@@ -9,7 +9,8 @@ module.exports = {
     mode: 'production',
     
     plugins: [
-      ...base.plugins,
+
+        ...base.plugins,
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash].css',
         chunkFilename: '[id].[contenthash].css',
@@ -18,17 +19,19 @@ module.exports = {
     ],
     module: {
         rules: [
+            ...base.module.rules,
         {
         test: /\.css$/i,
         use: [
             {
+
             loader:MiniCssExtractPlugin.loader, 
             options: {
                 publicPath: "/public/path/to/",
               },
 
         },
-        "css-loader",     
+        "css-loader",
         ],    
     }  
     ],
